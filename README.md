@@ -1,1 +1,1 @@
-# Django--Receipe-
+# Django--Recipe-
