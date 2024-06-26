@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block start %}
+    <h1>Django Backend Procedure</h1>
+    <p>This is index page</p>
+    <a href="/contact/" > Contact</a> |
+    <a href="/about/">About</a>
+    <!-- <p>Normal printing from the backend:</p>
+    {{people}} -->
+    <br>
+
+    <!-- <h3><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam, recusandae laudantium illo est tempore totam iusto odio amet unde libero ullam doloribus velit cum beatae odit, perferendis consectetur error cumque?</p></h3> -->
+    <table class="container">
+
+        <tr>
+          <th>No.</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>vote</th>
+        </tr>
+
+        {% for i in people %}
+      
+        <tr >
+            <td>{{forloop.counter}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.age}}</td>
+            <td {% if i.age <= "18" %}  style="background-color: red" {%endif%}>
+            {% if i.age >= "18" %}
+            👍
+
+            {%else%}
+            👎
+
+            {%endif%}
+            </td>
+        </tr>
+        {%endfor%}
+      </table>
+      <p>{{text}}</p>
+{% endblock %}
